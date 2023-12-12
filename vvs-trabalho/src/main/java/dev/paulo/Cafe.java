@@ -64,4 +64,8 @@ public class Cafe extends PanacheEntity {
     public void setCafeteria(Cafeteria cafeteria) {
         this.cafeteria = cafeteria;
     }
+
+    public Object getId() {
+        return null;
+    }
 }

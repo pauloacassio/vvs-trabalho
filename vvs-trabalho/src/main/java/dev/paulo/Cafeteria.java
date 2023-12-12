@@ -1,5 +1,6 @@
 package dev.paulo;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
@@ -22,8 +23,13 @@ public class Cafeteria extends PanacheEntity {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cafeteria_id")
     @JsonBackReference
-    // Método para listar todos cafés relacionados à cafeteria
+    // Lista de cafés
     private List<Cafe> cafes;
+
+    // Construtor para iniciar lista de cafes
+    public Cafeteria() {
+        this.cafes = new ArrayList<>();
+    }
 
     public String getNome() {
         return this.nome;

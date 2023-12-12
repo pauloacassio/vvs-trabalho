@@ -1,0 +1,25 @@
+name: VVS Trabalho CI/CD
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  dependecy-review:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Baixando repositório
+      uses: actions/checkout@v3
+    - name: Configurando Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Testando e buildando
+      working-directory: ./vvs-trabalho
+      run: |
+        ./mvnw test
+        ./mvnw compile quarkus:dev

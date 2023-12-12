@@ -2,27 +2,44 @@ package dev.paulo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+class CafeTest {
 
-public class CafeTest {
-
+    // Testando Getters e Setters
+    // Nome
     @Test
-    public void testSetAndGetNome() {
+    void testSetAndGetNome() {
         Cafe cafe = new Cafe();
         cafe.setNome("Café Teste");
         assertEquals("Café Teste", cafe.getNome());
     }
 
+    // Nota
     @Test
-    public void testSetAndGetNota() {
+    void testSetAndGetNota() {
         Cafe cafe = new Cafe();
         cafe.setNota(4);
         assertEquals(4, cafe.getNota());
     }
 
-    // Outros testes para os métodos set e get de outras propriedades
-
+    // Tipo
     @Test
-    public void testAddCafeToCafeteria() {
+    void testSetAndGetTipo() {
+        Cafe cafe = new Cafe();
+        cafe.setTipo("Amargo");
+        assertEquals("Amargo", cafe.getTipo());
+    }
+
+    // Favorito (verificando se é true)
+    @Test
+    void testSetAndGetFavorito() {
+        Cafe cafe = new Cafe();
+        cafe.setFavorito(true);
+        assertTrue(cafe.getFavorito());
+    }
+
+    // Adiciona um café a uma cafeteria
+    @Test
+    void testAddCafeToCafeteria() {
         Cafe cafe = new Cafe();
         Cafeteria cafeteria = new Cafeteria();
         cafeteria.setNome("Cafeteria Teste");
@@ -36,12 +53,17 @@ public class CafeTest {
         assertEquals(1, cafeteria.getCafes().size()); // Verifica se o café foi adicionado à cafeteria
         assertEquals(cafeteria, cafe.getCafeteria()); // Verifica se a cafeteria do café está correta
     }
-
-        // Testar se o café é marcado como favorito corretamente
-        @Test
-        public void testSetAndGetFavorito() {
-            Cafe cafe = new Cafe();
-            cafe.setFavorito(true);
-            assertTrue(cafe.getFavorito());
-        }
+    
+    // Tenta adicionar um café a uma cafeteria nula
+    @Test
+    void testAddCafeWithNullCafeteria() {
+        Cafe cafe = new Cafe();
+        cafe.setNome("Café Teste");
+        cafe.setNota(4);
+        cafe.setTipo("Expresso");
+        cafe.setFavorito(true);
+        cafe.setCafeteria(null);
+    
+        assertNull(cafe.getCafeteria()); // Verifica se a cafeteria do café é nula
+    }
 }

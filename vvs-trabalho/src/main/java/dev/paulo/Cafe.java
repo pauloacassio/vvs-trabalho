@@ -10,21 +10,18 @@ import jakarta.persistence.ManyToOne;
 /*
  * Classe Café
  */
-public class Cafe extends PanacheEntity {
-    // nome do cafe
-    private String nome;
-    // nota do cafe
-    private int nota;
-    // tipo do cafe
-    private String tipo;
-    // se é favorito
-    private boolean favorito;
+public class Cafe extends PanacheEntity {    
+
+    private String nome;// nome do cafe
+    private int nota;// nota do cafe 
+    private String tipo;// tipo do cafe
+    private boolean favorito;// se é favorito
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonManagedReference
     private Cafeteria cafeteria;
 
-
+    //Getters and Setters
     public String getNome() {
         return this.nome;
     }

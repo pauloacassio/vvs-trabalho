@@ -14,11 +14,9 @@ import jakarta.persistence.OneToMany;
 /*
  * Classe Cafeteria
  */
-public class Cafeteria extends PanacheEntity {
-    // nome da cafeteria
-    private String nome;
-    // endereço da cafeteria
-    private String endereco;
+public class Cafeteria extends PanacheEntity {    
+    private String nome;// nome da cafeteria
+    private String endereco;// endereço da cafeteria
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cafeteria_id")

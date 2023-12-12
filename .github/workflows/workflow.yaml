@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   dependecy-review:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
   steps:
     - name: Baixando repositório
       uses: actions/checkout@v3

@@ -15,12 +15,16 @@ import java.util.List;
 
 @Path("/cafeteria")
 @Transactional
+/*
+ * Classe para configuração de end points de cafeterias
+ */
 public class CafeteriaResource {
 
     @POST
     @Path("/save")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
+    // End point para salvar Cafeteria
     public Cafeteria save(@FormParam("nome") String nome, @FormParam("endereco") String endereco) {
         Cafeteria c = new Cafeteria();
         c.setNome(nome);
@@ -33,6 +37,7 @@ public class CafeteriaResource {
     @GET
     @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
+    // End point para listar Cafeterias
     public List<Cafeteria> list() {
         return Cafeteria.listAll();
     }
@@ -40,6 +45,7 @@ public class CafeteriaResource {
     @GET
     @Path("/list/{id}")
     @Produces(MediaType.APPLICATION_JSON)
+    // End point para listar Cafeteria por ID
     public Cafeteria list(@PathParam("id") Long id) {
         return Cafeteria.findById(id);
     }
@@ -47,6 +53,7 @@ public class CafeteriaResource {
     @DELETE
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
+    // End point para deletar Cafeteria
     public Cafeteria delete(@PathParam("id") Long id) {
         Cafeteria c = Cafeteria.findById(id);
         c.delete();
@@ -56,6 +63,7 @@ public class CafeteriaResource {
     @PUT
     @Path("/edit")
     @Produces(MediaType.APPLICATION_JSON)
+    // End point para editar Cafeteria
     public Cafeteria edit(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("endereco") String endereco) {
         Cafeteria c = Cafeteria.findById(id);
         c.setNome(nome);

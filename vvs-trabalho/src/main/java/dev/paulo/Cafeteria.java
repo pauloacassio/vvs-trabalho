@@ -10,13 +10,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
 @Entity
+/*
+ * Classe Cafeteria
+ */
 public class Cafeteria extends PanacheEntity {
+    // nome da cafeteria
     private String nome;
+    // endereço da cafeteria
     private String endereco;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cafeteria_id")
     @JsonBackReference
+    // Método para listar todos cafés relacionados à cafeteria
     private List<Cafe> cafes;
 
     public String getNome() {
@@ -42,7 +48,7 @@ public class Cafeteria extends PanacheEntity {
     public void setCafes(List<Cafe> cafes) {
         this.cafes = cafes;
     }
-
+    // Método para adicionar um café à cafeteria
     public void addCafe(Cafe cafe) {
         this.cafes.add(cafe);
     }

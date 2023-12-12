@@ -1,17 +1,23 @@
 package dev.paulo;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+/*
+ * Classe Café
+ */
 public class Cafe extends PanacheEntity {
+    // nome do cafe
     private String nome;
+    // nota do cafe
     private int nota;
+    // tipo do cafe
     private String tipo;
+    // se é favorito
     private boolean favorito;
 
     @ManyToOne(fetch = FetchType.EAGER)

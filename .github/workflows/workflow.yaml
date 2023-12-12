@@ -22,5 +22,6 @@ jobs:
       - name: Testando e buildando
         working-directory: ./vvs-trabalho
         run: |
+          chmod +x ./mvnw
           ./mvnw test
           ./mvnw compile quarkus:dev
